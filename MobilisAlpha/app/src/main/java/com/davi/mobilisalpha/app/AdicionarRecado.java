@@ -1,140 +1,112 @@
 package com.davi.mobilisalpha.app;
 
-import android.app.Activity;
 import android.app.ActionBar;
-import android.app.Fragment;
-
+import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-
-import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 
-
+/**
+ * Created by Davi on 05/06/2014.
+ */
 public class AdicionarRecado extends Activity implements ActionBar.OnNavigationListener {
-
-    /**
-     * The serialization (saved instance state) Bundle key representing the
-     * current dropdown position.
-     */
-    private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public final static String DATAset ="com.davi.mobilisapha.DATAset";
+    ArrayList<String> listItems=new ArrayList<String>();
+    ListView listView;
+    ArrayAdapter<String> adapter;
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_recado);
 
-        getActionBar().show();
         Intent intent = getIntent();
-        String message = intent.getStringExtra(CalendarView.DATA).toString();
-
-
-
-
-
-        // Set up the action bar to show a dropdown list.
+        String message = intent.getStringExtra(CalendarView.DATA);
+        TextView t = (TextView)findViewById(R.id.dateText);
+        t.setText(message);
         final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.show();
+
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        SpinnerAdapter mSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.action_list, android.R.layout.simple_spinner_dropdown_item);
+        actionBar.setListNavigationCallbacks(mSpinnerAdapter,this);
 
-        // Set up the dropdown list navigation in the action bar.
-        actionBar.setListNavigationCallbacks(
-                // Specify a SpinnerAdapter to populate the dropdown list.
-                new ArrayAdapter<String>(
-                        actionBar.getThemedContext(),
-                        android.R.layout.simple_list_item_1,
-                        android.R.id.text1,
-                        new String[] {
-                                getString(R.string.title_section1),
-                                getString(R.string.title_section2),
-                                getString(R.string.title_section3),
-                        }),
-                this);
+        addItems("Fim de Projeto Integrado I");
+        addItems("Boas Férias");
+
+        ListView listView = (ListView) findViewById(R.id.ListView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String disciplineCall = listItems.get(i);
+                //disciplineActions.putExtra(DISCIPLINE , disciplineCall);
+                //Toast.makeText(getApplicationContext(), "message is \n"+ disciplineActions.getStringExtra(Disciplinas.DISCIPLINE) ,
+                //        Toast.LENGTH_SHORT).show();
+                //startActivity(disciplineActions);
+            }
+        });
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,
+                listItems);
+
+
+        listView.setAdapter(adapter);
+
+
+
     }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Restore the previously serialized current dropdown position.
-        if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
-            getActionBar().setSelectedNavigationItem(
-                    savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        // Serialize the current dropdown position.
-        outState.putInt(STATE_SELECTED_NAVIGATION_ITEM,
-                getActionBar().getSelectedNavigationIndex());
-    }
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.adicionar_recado, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.adicionar_recado,menu);
         return true;
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case (R.id.button):
+                Toast.makeText(this, "Adcionar recado", Toast.LENGTH_SHORT)
+                    .show();
+                Intent intent = getIntent();
+                Intent addRecado = new Intent(this,EscreverRecado.class);
+                String message = intent.getStringExtra(CalendarView.DATA);
+                addRecado.putExtra(DATAset,message);
+                startActivity(addRecado);
+
+                break;
+        }
+        return false;
+    }
+
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+    public boolean onNavigationItemSelected(int i, long l) {
+        //Toast.makeText(getApplicationContext(), "Item número: "+i+" \n Id :" + l,
+        //        Toast.LENGTH_SHORT).show();
+        switch (i){
+            case 0 :{
+                return false;
+
+            }
+            case 1 :{
+                Intent gotoDiscipline = new Intent(this,Disciplinas.class);
+                startActivity(gotoDiscipline);
+                break;
+            }
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
-
-    @Override
-    public boolean onNavigationItemSelected(int position, long id) {
-        // When the given dropdown item is selected, show its contents in the
-        // container view.
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
-        return true;
+    public void addItems( String Item )
+    {
+        listItems.add(Item);
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_adicionar_recado, container, false);
-            return rootView;
-        }
-    }
-
 }

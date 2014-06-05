@@ -9,9 +9,8 @@
     <string name="title_activity_discpline_actions">DiscplineActions</string>
     <string name="title_activity_calendar_view">CalendarView</string>
     <string name="title_activity_adicionar_recado">AdicionarRecado</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="novaMensagem"></string>
+
     <string-array name="action_list">
         <item>Calendario</item>
         <item>Disciplinas</item>
@@ -20,5 +19,7 @@
         <item>Notificações</item>
         <item>PocketWork</item>
     </string-array>
+
+    <string name="title_activity_escrever_recado">EscreverRecado</string>
 
 </resources>

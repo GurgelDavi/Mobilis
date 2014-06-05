@@ -1,16 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.davi.mobilisalpha.app.AdicionarRecado" >
-
-    <item android:id="@+id/button"
-        android:title="@string/novaMensagem"
-        android:icon="@drawable/ic_action_new_event"
-        android:orderInCategory="100"
-        android:showAsAction="ifRoom"/>
-
+    tools:context="com.davi.mobilisalpha.app.EscreverRecado" >
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
-
 </menu>

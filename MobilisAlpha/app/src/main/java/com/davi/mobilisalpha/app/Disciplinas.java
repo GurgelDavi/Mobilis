@@ -35,8 +35,8 @@ public class Disciplinas extends Activity {
         String message = intent.getStringExtra(mobilisLogin.EXTRA_MESSAGE);
 
         setContentView(R.layout.activity_disciplinas);
-        Toast.makeText(getApplicationContext(), "Bem Vindo de volta \n" + message,
-                Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Bem Vindo de volta \n" + message,
+        //        Toast.LENGTH_SHORT).show();
         addItems("Interação Humano Computador","SMD");
         addItems("Projeto Integrado I", "SMD" );
         ListView listView = (ListView) findViewById(R.id.ListView);

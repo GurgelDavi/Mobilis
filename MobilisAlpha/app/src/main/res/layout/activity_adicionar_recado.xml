@@ -37,9 +37,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/underline"
         android:id="@+id/textView2"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:textColor="@color/solar_blue"/>
+        android:textColor="@color/solar_blue"
+        android:layout_below="@+id/dateText"
+        android:layout_alignRight="@+id/dateText" />
 
 
 </RelativeLayout>

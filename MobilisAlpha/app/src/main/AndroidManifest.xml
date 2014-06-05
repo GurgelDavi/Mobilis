@@ -30,11 +30,16 @@
         </activity>
         <activity
             android:name=".CalendarView"
-            android:label="">
+            android:label="" >
         </activity>
         <activity
             android:name=".AdicionarRecado"
-            android:label="@string/title_activity_adicionar_recado" >
+            android:label=""
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".EscreverRecado"
+            android:label="" >
         </activity>
     </application>
 

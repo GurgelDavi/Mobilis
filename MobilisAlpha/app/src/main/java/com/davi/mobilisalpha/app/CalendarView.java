@@ -175,6 +175,19 @@ public class CalendarView extends Activity implements ActionBar.OnNavigationList
 
     @Override
     public boolean onNavigationItemSelected(int i, long l) {
+        //Toast.makeText(getApplicationContext(), "Item número: "+i+" \n Id :" + l,
+        //        Toast.LENGTH_SHORT).show();
+        switch (i){
+            case 0 :{
+                return false;
+
+            }
+            case 1 :{
+                Intent gotoDiscipline = new Intent(this,Disciplinas.class);
+                startActivity(gotoDiscipline);
+                break;
+            }
+        }
         return false;
     }
 }
