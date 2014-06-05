@@ -1,0 +1,55 @@
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/fundo_mobilis"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/logo_temp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Usuário"
+        android:ems="10"
+        android:id="@+id/UserName"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColorLink="@color/solar_black"
+        android:textColor="@color/solar_black"
+        android:autoText="false"
+        android:onClick="clearText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordText"
+        android:layout_below="@+id/UserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Senha"
+        android:textColor="@color/solar_black"
+        android:autoText="false"
+        android:onClick="clearPasswordText" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/button"
+        android:layout_below="@+id/passwordText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:clickable="true"
+        android:onClick="acessar" />
+
+</RelativeLayout>

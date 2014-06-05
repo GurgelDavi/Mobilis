@@ -1,0 +1,9 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="solar_blue">#ff003e7a</color>
+    <color name="solar_black">#ff333333</color>
+    <color name="solar_white">#ffe9e9e9</color>
+
+
+</resources>

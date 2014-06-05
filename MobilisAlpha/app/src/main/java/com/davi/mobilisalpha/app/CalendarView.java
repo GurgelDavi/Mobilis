@@ -1,13 +1,17 @@
-package com.testing.calendartry2.app;
+package com.davi.mobilisalpha.app;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,13 +21,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-
-
-
-public class CalendarView extends Activity {
-
+public class CalendarView extends Activity implements ActionBar.OnNavigationListener {
+    public final static String DATA ="com.davi.mobilisapha.DATA";
     public Calendar month, itemmonth;// calendar instances.
-
     public CalendarAdapter adapter;// adapter instance
     public android.os.Handler handler;// for grabbing some event values for showing the dot
     // marker.
@@ -31,8 +31,18 @@ public class CalendarView extends Activity {
     // needs showing the event marker
 
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
+        final ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        SpinnerAdapter mSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.action_list, android.R.layout.simple_spinner_dropdown_item);
+        actionBar.setListNavigationCallbacks(mSpinnerAdapter,this);
+
+        final Intent intent = new Intent(this,AdicionarRecado.class);
+
+
 
         month = Calendar.getInstance();
         itemmonth = (Calendar) month.clone();
@@ -92,7 +102,12 @@ public class CalendarView extends Activity {
                 }
                 ((CalendarAdapter) parent.getAdapter()).setSelected(v);
 
-                showToast(selectedGridDate);
+                //showToast(selectedGridDate);
+                intent.putExtra(DATA,selectedGridDate);
+                startActivity(intent);
+
+
+
 
             }
         });
@@ -157,4 +172,9 @@ public class CalendarView extends Activity {
             adapter.notifyDataSetChanged();
         }
     };
+
+    @Override
+    public boolean onNavigationItemSelected(int i, long l) {
+        return false;
+    }
 }

@@ -1,10 +1,8 @@
-package com.testing.calendartry2.app;
+package com.davi.mobilisalpha.app;
 
 import android.content.Context;
 import android.graphics.Color;
-
 import android.view.LayoutInflater;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,6 +15,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+
 
 
 public class CalendarAdapter extends BaseAdapter {
@@ -196,4 +195,5 @@ public class CalendarAdapter extends BaseAdapter {
     }
 
 }
+
 

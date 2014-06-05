@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MobilisAlpha</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_disciplinas">Disciplinas</string>
+    <string name="underline">___________________________________________________________</string>
+    <string name="title_activity_discpline_actions">DiscplineActions</string>
+    <string name="title_activity_calendar_view">CalendarView</string>
+    <string name="title_activity_adicionar_recado">AdicionarRecado</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string-array name="action_list">
+        <item>Calendario</item>
+        <item>Disciplinas</item>
+        <item>Forum</item>
+        <item>Lembretes</item>
+        <item>Notificações</item>
+        <item>PocketWork</item>
+    </string-array>
+
+</resources>
