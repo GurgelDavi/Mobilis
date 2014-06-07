@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,6 +33,7 @@ public class CalendarView extends Activity implements ActionBar.OnNavigationList
     // needs showing the event marker
 
     public void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
@@ -178,16 +181,21 @@ public class CalendarView extends Activity implements ActionBar.OnNavigationList
         //Toast.makeText(getApplicationContext(), "Item número: "+i+" \n Id :" + l,
         //        Toast.LENGTH_SHORT).show();
         switch (i){
-            case 0 :{
+            case 1 :{
                 return false;
 
             }
-            case 1 :{
+            case 2 :{
                 Intent gotoDiscipline = new Intent(this,Disciplinas.class);
                 startActivity(gotoDiscipline);
                 break;
             }
         }
         return false;
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.calendar_view,menu);
+        return true;
     }
 }

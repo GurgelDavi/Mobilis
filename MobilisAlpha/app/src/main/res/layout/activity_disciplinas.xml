@@ -16,7 +16,7 @@
         android:id="@+id/editText"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/title_activity_disciplinas"
+        android:text="Escolha uma Disciplina"
         android:textColor="@color/solar_blue" />
 
     <ListView

@@ -2,6 +2,8 @@ package com.davi.mobilisalpha.app;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,11 +12,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 
 public class EscreverRecado extends Activity implements ActionBar.OnNavigationListener{
+    private static final int DIALOG_ALERT = 10;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escrever_recado);
@@ -62,11 +66,13 @@ public class EscreverRecado extends Activity implements ActionBar.OnNavigationLi
         //Toast.makeText(getApplicationContext(), "Item número: "+i+" \n Id :" + l,
         //        Toast.LENGTH_SHORT).show();
         switch (i){
-            case 0 :{
-                return false;
+            case 1 :{
+                Intent gotoDiscipline = new Intent(this,CalendarView.class);
+                startActivity(gotoDiscipline);
+                break;
 
             }
-            case 1 :{
+            case 2 :{
                 Intent gotoDiscipline = new Intent(this,Disciplinas.class);
                 startActivity(gotoDiscipline);
                 break;
@@ -74,10 +80,55 @@ public class EscreverRecado extends Activity implements ActionBar.OnNavigationLi
         }
         return false;
     }
-    public void goToCalendar(View view){
+    public void goToCalendar(){
         Intent Calendarintent = new Intent(this,CalendarView.class);
         //Toast.makeText(getApplicationContext(), "Agendando para \n" + message,
         //      Toast.LENGTH_SHORT).show();
         startActivity(Calendarintent);
+    }
+    public void sendMessage(View view){
+        new AlertDialog.Builder(this)
+                .setTitle("Enviar :D")
+                .setMessage("Deseja enviar este recado  ?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        goToCalendar();
+                        Toast.makeText(getApplicationContext(), "Aviso Enviado",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+
+
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+    public void excludeMessage(View view){
+        new AlertDialog.Builder(this)
+                .setTitle("Excluir :'(")
+                .setMessage("Deseja descartar este recado  ?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        Toast.makeText(getApplicationContext(), "Aviso Descartado",
+                                Toast.LENGTH_SHORT).show();
+                        goToCalendar();
+
+
+
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Gallery;
 import android.widget.ListView;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ import java.util.ArrayList;
  * Created by Davi on 05/06/2014.
  */
 public class AdicionarRecado extends Activity implements ActionBar.OnNavigationListener {
+    private int count=0;
+    private int countAhead=0;
+
     public final static String DATAset ="com.davi.mobilisapha.DATAset";
     ArrayList<String> listItems=new ArrayList<String>();
     ListView listView;
@@ -62,7 +66,7 @@ public class AdicionarRecado extends Activity implements ActionBar.OnNavigationL
 
 
         listView.setAdapter(adapter);
-
+        count=1;
 
 
     }
@@ -74,8 +78,7 @@ public class AdicionarRecado extends Activity implements ActionBar.OnNavigationL
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case (R.id.button):
-                Toast.makeText(this, "Adcionar recado", Toast.LENGTH_SHORT)
-                    .show();
+
                 Intent intent = getIntent();
                 Intent addRecado = new Intent(this,EscreverRecado.class);
                 String message = intent.getStringExtra(CalendarView.DATA);
@@ -92,16 +95,29 @@ public class AdicionarRecado extends Activity implements ActionBar.OnNavigationL
     public boolean onNavigationItemSelected(int i, long l) {
         //Toast.makeText(getApplicationContext(), "Item número: "+i+" \n Id :" + l,
         //        Toast.LENGTH_SHORT).show();
-        switch (i){
-            case 0 :{
-                return false;
+        if (countAhead < count)
+        {
+            countAhead++;
 
+        }
+        else {
+            switch (i) {
+                case 1: {
+                    Intent gotoDiscipline = new Intent(this, CalendarView.class);
+                    startActivity(gotoDiscipline);
+                    return true;
+
+
+
+
+                }
+                case 2: {
+                    Intent gotoDiscipline = new Intent(this, Disciplinas.class);
+                    startActivity(gotoDiscipline);
+                    break;
+                }
             }
-            case 1 :{
-                Intent gotoDiscipline = new Intent(this,Disciplinas.class);
-                startActivity(gotoDiscipline);
-                break;
-            }
+
         }
         return false;
     }
@@ -110,3 +126,4 @@ public class AdicionarRecado extends Activity implements ActionBar.OnNavigationL
         listItems.add(Item);
     }
 }
+

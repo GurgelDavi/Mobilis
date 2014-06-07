@@ -9,6 +9,8 @@
         android:id="@+id/header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        
         android:background="@drawable/calendar_top1" >
 
         <RelativeLayout
@@ -30,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dip"
+            android:layout_marginBottom="10dip"
             android:textColor="@color/solar_white"
             android:textSize="18dip"
             android:textStyle="bold" />

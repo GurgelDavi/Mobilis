@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MobilisAlpha</string>
+    <string name="app_name">Solar Mobilis</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Sobre o Solar Mobilis</string>
+    <string name="Ajuda">Ajuda</string>
+    <string name="Sair">Sair</string>
     <string name="title_activity_disciplinas">Disciplinas</string>
     <string name="underline">___________________________________________________________</string>
     <string name="title_activity_discpline_actions">DiscplineActions</string>
     <string name="title_activity_calendar_view">CalendarView</string>
     <string name="title_activity_adicionar_recado">AdicionarRecado</string>
     <string name="novaMensagem"></string>
+    <string name="confirmAction">Deseja confirmar esse anvio ?</string>
 
     <string-array name="action_list">
+        <item>Solar Mobilis</item>
         <item>Calendario</item>
         <item>Disciplinas</item>
         <item>Forum</item>

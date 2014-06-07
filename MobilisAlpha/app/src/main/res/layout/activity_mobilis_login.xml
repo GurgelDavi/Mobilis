@@ -42,12 +42,14 @@
         android:onClick="clearPasswordText" />
 
     <Button
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:scaleX=".8"
+        android:scaleY=".7"
+
+        android:background="@drawable/acessar"
         android:id="@+id/button"
         android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:clickable="true"
         android:onClick="acessar" />

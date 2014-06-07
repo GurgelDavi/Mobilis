@@ -26,10 +26,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/ListView"
         android:clickable="false"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="37dp"
-        android:descendantFocusability="blocksDescendants" />
+        android:descendantFocusability="blocksDescendants"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="17dp"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -39,7 +39,7 @@
         android:id="@+id/textView2"
         android:textColor="@color/solar_blue"
         android:layout_below="@+id/dateText"
-        android:layout_alignRight="@+id/dateText" />
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>

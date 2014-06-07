@@ -2,7 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.davi.mobilisalpha.app.CalendarView" >
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    android:title="@string/action_settings"
+    android:orderInCategory="100"
+    android:showAsAction="never"
+    />
+    <item android:id="@+id/Ajuda"
+        android:title="@string/Ajuda"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:showAsAction="never"
+        />
+    <item android:id="@+id/Sair"
+        android:title="@string/Sair"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        />
 </menu>
