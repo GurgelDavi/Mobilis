@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Escreva seu recado"
+        android:text="Escreva o seu Aviso"
         android:id="@+id/textView"
         android:textColor="@color/solar_blue"
         android:layout_alignParentTop="true"
@@ -57,7 +57,7 @@
         android:layout_below="@+id/dateText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:text="Insira seu Recado"
+        android:text="Insira seu Aviso"
         android:onClick="clearView" />
 
     <ImageButton
